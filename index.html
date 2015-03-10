@@ -4,33 +4,28 @@
     <title>Thiago Loureiro | Programmer</title>
     <meta charset="UTF-8">
     <link href='/assets/css/style.css' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <header><a href="/about">Thiago Loureiro | Programmer</a></header>
+    <header class=""><a href="/about">Thiago Loureiro | Programmer</a></header>
    
     <section id="grid">
 
-      <a id="seeing-eye-pi" href="seeing-eye-pi" class="project">
+      <a id="seeing-eye-pi" href="/seeing-eye-pi" class="project">
         <div class="project-info">
           <div>
             <h2 class="project-name">Seeing Eye Pi</h2>
             <h3 class="project-description">A simple computer environment for the visually impaired</h3>
+            <img class="more" src="/assets/images/icons/more.png"/>
           </div>
           <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>            
+            <h3>linux | rpi | python | ruby</h3>
           </div>
         </div>
         <video loop>
           <source src="/assets/videos/seeing_eye_pi.mp4" type="video/mp4">
         </video>
-        <div class="modal">
-          BLA
-          <button class="close-btn" >*</button>
-        </div>
       </a>      
 
 
@@ -41,10 +36,7 @@
             <h3 class="project-description">jQuery accordion for image grids</h3>
           </div>
           <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>            
+            <h3>jquery</h3>
           </div>
         </div>
         <video loop>
@@ -60,8 +52,7 @@
             <h3 class="project-description">Remote command execution through gtalk</h3>
           </div>
           <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>     
+            <h3>linux | ruby</h3>
           </div>
         </div>
         <video loop>
@@ -69,21 +60,6 @@
         </video>
       </a>
       
-      <a href="hellochristinekim" id="hellochristinekim" class="project">
-        <div class="project-info">
-          <div>
-            <h2 class="project-name">hellochristinekim.com</h2>
-            <h3 class="project-description">Portfolio website</h3>
-          </div>
-          <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>     
-          </div>
-        </div>
-        <video loop>
-          <source src="/assets/videos/hellochristinekim.mp4" type="video/mp4">
-        </video>
-      </a>
       
       <a href="fit-text-to-screen" id="fit-text-to-screen" class="project">
         <div class="project-info">
@@ -92,8 +68,7 @@
             <h3 class="project-description">Fit text inside your browser window</h3>
           </div>
           <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>     
+            <h3>js</h3>
           </div>
         </div>
         <video loop>
@@ -102,6 +77,21 @@
       </a>
       
       
+      <a href="hellochristinekim" id="hellochristinekim" class="project">
+        <div class="project-info">
+          <div>
+            <h2 class="project-name">hellochristinekim.com</h2>
+            <h3 class="project-description">Portfolio website</h3>
+          </div>
+          <div class="tags">
+            <h3>html5</h3>
+          </div>
+        </div>
+        <video loop>
+          <source src="/assets/videos/hellochristinekim.mp4#t=8" type="video/mp4">
+        </video>
+      </a>
+      
       <a href="purge" id="purge" class="project">
         <div class="project-info">
           <div>
@@ -109,8 +99,7 @@
             <h3 class="project-description">Youtube mosaic experiment</h3>
           </div>
           <div class="tags">
-            <img src="/assets/images/icons/ruby.png" alt="ruby"/>
-            <img src="/assets/images/icons/wordpress.png" alt="wordpress"/>     
+            <h3>js</h3>
           </div>
         </div>
         <video loop>
@@ -128,8 +117,38 @@
         <p>Contact me!</p>
       </div>
       <a id="contact-mail" href="mailto:root@tloureiro.com">root@tloureiro.com</a>
-      <button class="close-btn">*</button>
+      <button class="close-btn">x</button>
     </section>
+    
+    <section id="seeing-eye-pi-detail" class="modal project-detail">
+      <div class="arrow left"><img src="/assets/images/icons/leftarrow.png" alt="left"/></div>
+      <div class="content">
+        <div class="content-top"><button class="close-btn">x</button></div>
+        
+        <div class="content-bottom">
+          <div class="content-video">
+            <video loop autoplay>
+              <source src="/assets/videos/seeing_eye_pi.mp4" type="video/mp4">
+            </video>
+            <div class="more-info">
+              <h2>Seeing Eye pi</h2>
+              <a href="#">Github</a> 
+              <a href="#">Youtube 1</a> 
+              <a href="#">Youtube 2</a>
+              <a href="#">Link</a>
+            </div>
+          </div>
+          <div class="content-description">
+            <p>
+            The aim of this project is to provide an environment where seeing impaired people can easily use some basic computer tools using the command line in a Raspberry Pi
+            </p>
+          </div>
+        
+        </div>
+      </div>
+      <div class="arrow left"><img src="/assets/images/icons/rightarrow.png" alt="right"/></div>
+      
+    </section>    
   
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/script.js"></script>

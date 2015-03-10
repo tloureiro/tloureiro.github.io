@@ -1,0 +1,305 @@
+body,html{
+    margin:0;
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 100%; 
+    height: 100%; 
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;    
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+header{
+    position: fixed;
+    z-index: 1;
+    margin: 0.3rem auto auto 0.7rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.15rem;
+}
+
+header.inactive{
+    display: none;
+}
+
+#grid{
+    display: flex;
+    flex-wrap: wrap; 
+    width: 100%;
+    height: 100%;
+}
+
+#grid .project{
+    width: 33.3333%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#grid .project:hover .project-info{
+    background-color: rgba(0, 0, 0, 0.4);    
+}
+
+#grid .project .project-info{
+    position: absolute;
+    width: 33.3333%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: flex-end;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (orientation:portrait) {
+    
+    #grid .project{
+        width: 100%;
+        height: 50%;        
+    }
+
+    #grid .project .project-info{
+        width: 100%;
+        height: 50%;
+    }
+
+}
+
+#grid .project .project-info div{
+    width:100%;
+    margin: 0;
+}
+
+#grid .project .project-info .project-name{
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: all 0.2s linear;
+}
+
+#grid .project:hover .project-info .project-name{
+  text-shadow: 0.2rem 0.2rem 0.15rem #000000;
+  font-size: 1.7rem;
+}
+
+
+#grid .project .project-info .project-description{
+    margin: 0;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 0.6rem;
+}
+
+#grid .project:hover .project-info .project-description{
+    text-shadow: 0.1rem 0.1rem 0.15rem #000000;
+}
+
+#grid .project .project-info .more{
+    display: block;
+    margin: 1rem auto 0 auto;
+    width: 4rem;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+}
+
+#grid .project:hover .project-info .more{
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+#grid .project .project-info .tags{
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    margin-bottom: 2%; 
+}
+
+#grid .project .project-info .tags h3{
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    margin:0;
+    line-height: 2rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.8rem;    
+}
+
+#grid .project:hover .project-info .tags h3{
+    opacity: 1;
+}
+
+#grid .project .project-info .tags img{
+    height: 100%;
+    margin-right: 0.8rem;
+}
+
+header{
+    margin: 0.3rem auto auto 0.7rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#grid .project video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal{
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 90%;
+    height: 85%;
+    position: fixed;
+    top: 7.5%;
+    left: 5%;
+}
+
+.modal.active{
+    display: flex;
+    z-index: 10;
+}
+
+#about{
+    background-color: black;
+    text-align: center;
+}
+
+#about h2{
+    margin: 0;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300; 
+}
+
+#about #about-text{
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 100%;
+    height: 30%;
+    margin:0;
+}
+
+#about #about-text p{
+    margin: 0;
+}
+
+#about #contact-mail{
+    height: 40%;
+    width: 100%;
+}
+
+.modal .close-btn{
+    background-color: transparent;
+    border: 0; 
+    height: 4rem;    
+    cursor: pointer;
+    font-weight: 300;
+    outline: none;
+    color: white;
+    font-size: 3rem;
+}
+
+#about.modal .close-btn{
+    position: absolute;
+    right: 49%;
+    top: 0;
+    line-height: 90%;
+}
+
+#seeing-eye-pi video{
+    object-position: 0 0;
+}
+
+.project-detail.modal{
+    background-color: black;
+}
+
+.project-detail .arrow{
+    height: 100%;
+    width: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-detail .arrow img{
+    width: 3rem;
+    height: 6rem;
+}
+
+.project-detail .content{
+    height: 100%;
+    width: 84%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-detail .content .content-top{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.project-detail .content .content-bottom{
+    display: flex;
+    align-self: flex-end;
+    width: 100%;
+    height: 88%;
+}
+
+.project-detail .content .content-bottom .content-video{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 65%;
+}
+
+.project-detail .content .content-bottom .content-video video{
+    width: 100%;
+    max-height: 80%;
+    object-position: 0 0;
+}
+
+.project-detail .content .content-bottom .content-video .more-info a{
+    outline: 1px solid white;
+    padding: 0.3rem 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.project-detail .content .content-bottom .content-video .more-info a:hover{
+    background-color: white;
+    color: black;
+}
+
+.project-detail .content .content-bottom .content-description{
+    height: 100%;
+    width: 35%;
+    font-size: 2rem;
+    font-weight: 300;
+    overflow: auto;
+}
+
+.project-detail .content .content-bottom .content-description p{
+  margin: 0;
+  padding: 0.1rem 0 0 0;
+}
+
+.project-detail .right-arrow{
+    height: 100%;
+    width: 12.5%;    
+}
