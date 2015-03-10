@@ -53,8 +53,44 @@ $(function(){
           history.pushState(null,null,"/");
         }
         break;
+        case 37: 
+          previousProjectFunction();
+          break;
+        case 39: 
+          nextProjectFunction();
+          break;        
       default: return;
     }
   });  
         
 });
+
+var previousProjectFunction = function(){
+  
+  var currentProject = $(".modal.project-detail.active");
+  
+  if(currentProject){
+    if(currentProject.prev(".modal.project-detail").length){
+      $(".modal.project-detail").removeClass("active");
+      currentProject.prev(".modal.project-detail").eq(0).addClass("active");
+    }else{
+      $(".modal.project-detail").removeClass("active");
+      $(".modal.project-detail:last").eq(0).addClass("active");
+    }
+  }
+};
+
+var nextProjectFunction = function(){
+  
+  var currentProject = $(".modal.project-detail.active");
+
+  if(currentProject){
+    if(currentProject.next(".modal.project-detail").length){
+      $(".modal.project-detail").removeClass("active");
+      currentProject.next(".modal.project-detail").eq(0).addClass("active");
+    }else{
+      $(".modal.project-detail").removeClass("active");
+      $(".modal.project-detail:first").eq(0).addClass("active");
+    }
+  }
+};
