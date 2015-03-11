@@ -196,7 +196,7 @@ header{
 
 #about #about-text p{
     margin: 0;
-    padding: 0 3rem;
+    padding: 0 10rem;
 }
 
 #about #contact-mail{
@@ -217,11 +217,11 @@ header{
     font-weight: 300;
     outline: none;
     color: white;
-    font-size: 9vh;
+    font-size: 6vh;
 }
 
 .modal .close-btn:hover{
-    font-size: 10vh;
+    font-size: 7vh;
 }
 
 #about.modal .close-btn{
