@@ -107,7 +107,7 @@ var urlRouter = function(event){
       pathName = document.location.pathname;
     }
     
-    var projectUrls = ["/seeing-eye-pi", "/gridacord", "/sshish", "/fit-text-to-screen", "/hellochristinekim", "purge"];
+    var projectUrls = ["/seeing-eye-pi", "/gridacord", "/sshish", "/fit-text-to-screen", "/hellochristinekim", "/purge"];
     
     if(pathName === "/"){
       $(".active").removeClass("active");
