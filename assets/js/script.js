@@ -14,30 +14,9 @@ $(function(){
     }
   );
   
-  $("a").click(function(event){
-
-    var pathName = this.pathname;
-    var outsideLink = false;
-    
-    switch(pathName){
-      case "/about":
-        $("#about").toggleClass("active");
-        $("header").addClass("inactive");
-        break;
-      case "/seeing-eye-pi":
-        $("#seeing-eye-pi-detail").toggleClass("active");
-        break;        
-      default:
-        outsideLink = true;
-        break;
-    }
-    
-    if(!outsideLink){
-      event.preventDefault();
-      history.pushState(null,null,this.pathname);
-    }
-    
-  });
+  $(window).bind("popstate", urlRouter);
+  
+  $("a").click(urlRouter);
   
   $(".close-btn").click(function(){
     $(this).closest(".modal").removeClass("active");
@@ -45,12 +24,24 @@ $(function(){
     history.pushState(null,null,"/");
   });
   
+  $("#about .close-btn").click(function(){
+    $("header").addClass("active");
+  });
+  
+  $("#e-mail").click(function(){
+    $(this).attr("href", "mailto:root" + "@" + "tloureiro.com" );
+  });
+  
+  $(".arrow.left img").click(previousProjectFunction);
+  $(".arrow.right img").click(nextProjectFunction);
+  
   $(document).keydown(function(e) {
     switch(e.which){
       case 27:
         $(".modal").removeClass("active");
         if(window.location.pathname !== "/" && window.location.href !== "/index.html"){
           history.pushState(null,null,"/");
+          $("header").removeClass("inactive");
         }
         break;
         case 37: 
@@ -68,29 +59,72 @@ $(function(){
 var previousProjectFunction = function(){
   
   var currentProject = $(".modal.project-detail.active");
+  var pageId;
   
-  if(currentProject){
+  if(currentProject.length){
     if(currentProject.prev(".modal.project-detail").length){
       $(".modal.project-detail").removeClass("active");
       currentProject.prev(".modal.project-detail").eq(0).addClass("active");
+      pageId = currentProject.prev(".modal.project-detail").eq(0).attr('id').replace(/-detail$/,"");
     }else{
       $(".modal.project-detail").removeClass("active");
       $(".modal.project-detail:last").eq(0).addClass("active");
+      pageId = $(".modal.project-detail:last").eq(0).attr('id').replace(/-detail$/,"");
     }
+    
+    history.pushState(null,null,"/" + pageId);
   }
 };
 
 var nextProjectFunction = function(){
   
   var currentProject = $(".modal.project-detail.active");
+  var pageId;
 
-  if(currentProject){
+  if(currentProject.length){
     if(currentProject.next(".modal.project-detail").length){
       $(".modal.project-detail").removeClass("active");
       currentProject.next(".modal.project-detail").eq(0).addClass("active");
+      pageId = currentProject.next(".modal.project-detail").eq(0).attr('id').replace(/-detail$/,"");
     }else{
       $(".modal.project-detail").removeClass("active");
       $(".modal.project-detail:first").eq(0).addClass("active");
+      pageId = $(".modal.project-detail:first").eq(0).attr('id').replace(/-detail$/,"");
     }
+    
+    history.pushState(null,null,"/" + pageId);
   }
 };
+
+var urlRouter = function(event){
+    
+    var pathName;
+    var outsideLink = false;
+    
+    if(this.pathname){
+      pathName = this.pathname;
+    }else{
+      pathName = document.location.pathname;
+    }
+    
+    var projectUrls = ["/seeing-eye-pi", "/gridacord", "/sshish", "/fit-text-to-screen", "/hellochristinekim", "purge"];
+    
+    if(pathName === "/"){
+      $(".active").removeClass("active");
+      $("header").addClass("active");
+    }else if(pathName === "/about"){
+      $(".active").removeClass("active");
+      $("#about").addClass("active");
+      $("header").addClass("inactive");
+    }else if(projectUrls.indexOf(pathName) >= 0){
+      $(".active").removeClass("active");
+      $("#"+ pathName.replace(/^\//,"") + "-detail").addClass("active");
+    }else{
+      outsideLink = true;
+    }
+    
+    if(!outsideLink && this.pathname){ //not outside and not a back button call
+      event.preventDefault();
+      history.pushState(null,null,pathName);
+    }
+}

@@ -44,6 +44,7 @@ header.inactive{
 
 #grid .project:hover .project-info{
     background-color: rgba(0, 0, 0, 0.4);    
+    transition: background-color 0.5s linear;
 }
 
 #grid .project .project-info{
@@ -54,6 +55,7 @@ header.inactive{
     flex-wrap: wrap; 
     align-items: flex-end;
     background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.5s linear;
 }
 
 @media screen and (orientation:portrait) {
@@ -161,6 +163,7 @@ header{
     position: fixed;
     top: 7.5%;
     left: 5%;
+    background-image: url("/assets/images/icons/bg.jpg");
 }
 
 .modal.active{
@@ -171,11 +174,12 @@ header{
 #about{
     background-color: black;
     text-align: center;
+    overflow: auto;
 }
 
 #about h2{
     margin: 0;
-    height: 30%;
+    height: 20%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -187,17 +191,22 @@ header{
     font-size: 1.5rem;
     font-weight: 500;
     width: 100%;
-    height: 30%;
     margin:0;
 }
 
 #about #about-text p{
     margin: 0;
+    padding: 0 3rem;
 }
 
 #about #contact-mail{
-    height: 40%;
+    height: 10%;
     width: 100%;
+}
+
+#about .more-info{
+    width: 100%;
+    height: 30%;
 }
 
 .modal .close-btn{
@@ -208,13 +217,15 @@ header{
     font-weight: 300;
     outline: none;
     color: white;
-    font-size: 3rem;
+    font-size: 9vh;
+}
+
+.modal .close-btn:hover{
+    font-size: 10vh;
 }
 
 #about.modal .close-btn{
-    position: absolute;
-    right: 49%;
-    top: 0;
+    height: 10%;
     line-height: 90%;
 }
 
@@ -223,6 +234,7 @@ header{
 }
 
 .project-detail.modal{
+    border-radius: 5px;
     background-color: black;
 }
 
@@ -237,6 +249,7 @@ header{
 .project-detail .arrow img{
     width: 3rem;
     height: 6rem;
+    cursor: pointer; 
 }
 
 .project-detail .content{
@@ -275,18 +288,18 @@ header{
     object-fit: cover;
 }
 
-.project-detail .content .content-bottom .content-video .more-info{
-    padding-left: 1%;
+.more-info{
+    padding-left: 1px;
 }
 
-.project-detail .content .content-bottom .content-video .more-info a{
+.more-info a{
     outline: 1px solid white;
     padding: 0.3rem 0.7rem;
-    margin: auto 0.5rem 0.5rem auto;
+    margin: 0.5rem 0.5rem 0.5rem auto;
     display: inline-block;
 }
 
-.project-detail .content .content-bottom .content-video .more-info a:hover{
+.more-info a:hover{
     background-color: white;
     color: black;
 }
@@ -294,9 +307,13 @@ header{
 .project-detail .content .content-bottom .content-description{
     height: 100%;
     width: 35%;
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-weight: 300;
     padding-left: 1%;
+}
+
+.project-detail .content .content-bottom .content-description h3{
+    margin-top: 0;
 }
 
 .project-detail .content .content-bottom .content-description p{
@@ -307,4 +324,11 @@ header{
 .project-detail .right-arrow{
     height: 100%;
     width: 12.5%;    
+}
+
+#gridacord-detail.project-detail video,
+#sshish-detail.project-detail video{
+    max-height: 85%;
+    max-width: 85%;
+    object-fit: inherit;
 }
