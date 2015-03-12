@@ -1,4 +1,4 @@
-$(function(){
+  $(function(){
   $('.project').hover(
     function(){
       if($("video",this)[0]){
@@ -123,7 +123,7 @@ var urlRouter = function(event){
       $("header").addClass("inactive");
     }else if(projectUrls.indexOf(destination) >= 0){
       $(".active").removeClass("active");
-      $("#"+ pathName.replace(/^\//,"") + "-detail").addClass("active");
+      $("#"+ destination.replace(/^\//,"") + "-detail").addClass("active");
     }else{
       outsideLink = true;
     }
