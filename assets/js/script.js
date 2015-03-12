@@ -98,25 +98,30 @@ var nextProjectFunction = function(){
 
 var urlRouter = function(event){
     
-    var pathName;
+    var destination;
     var outsideLink = false;
     
     if(this.pathname){
-      pathName = this.pathname;
-    }else{
-      pathName = document.location.pathname;
+      
+      if(this.hostname !== document.location.hostname){ //external
+        destination = this.href;
+      }else{ //internal
+        destination = this.pathname;
+      }
+    }else{ //back button
+      destination = document.location.pathname;
     }
     
     var projectUrls = ["/seeing-eye-pi", "/gridacord", "/sshish", "/fit-text-to-screen", "/hellochristinekim", "/purge"];
     
-    if(pathName === "/"){
+    if(destination === "/"){
       $(".active").removeClass("active");
       $("header").addClass("active");
-    }else if(pathName === "/about"){
+    }else if(destination === "/about"){
       $(".active").removeClass("active");
       $("#about").addClass("active");
       $("header").addClass("inactive");
-    }else if(projectUrls.indexOf(pathName) >= 0){
+    }else if(projectUrls.indexOf(destination) >= 0){
       $(".active").removeClass("active");
       $("#"+ pathName.replace(/^\//,"") + "-detail").addClass("active");
     }else{
@@ -125,6 +130,6 @@ var urlRouter = function(event){
     
     if(!outsideLink && this.pathname){ //not outside and not a back button call
       event.preventDefault();
-      history.pushState(null,null,pathName);
+      history.pushState(null,null,destination);
     }
-}
+};
