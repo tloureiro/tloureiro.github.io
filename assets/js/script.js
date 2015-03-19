@@ -24,7 +24,7 @@
     history.pushState(null,null,"/");
   });
   
-  $("#about .close-btn").click(function(){
+  $("#about-detail .close-btn").click(function(){
     $("header").addClass("active");
   });
   
@@ -119,7 +119,7 @@ var urlRouter = function(event){
       $("header").addClass("active");
     }else if(destination === "/about"){
       $(".active").removeClass("active");
-      $("#about").addClass("active");
+      $("#about-detail").addClass("active");
       $("header").addClass("inactive");
     }else if(projectUrls.indexOf(destination) >= 0){
       $(".active").removeClass("active");
